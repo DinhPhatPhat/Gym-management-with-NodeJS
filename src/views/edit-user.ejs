@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/Home.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#create-user">Create user</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </div>
+
+    <h2>Edit user</h2>
+    <%= JSON.stringify(user)%>
+        <fieldset class="create-new-user">
+            <legend>Edit user who has id <%=user.id%>
+            </legend>
+            <form action="/edit-user" method="post">
+
+                <input class="display-none" type="text" name="id" value="<%= user.id%>">
+
+                <label for="email">Email</label>
+                <input type="text" name="email" value="<%= user.email%>">
+
+                <label for="name">Name</label>
+                <input type="text" name="name" value="<%= user.name%>">
+
+                <label for="city">City</label>
+                <input type="text" name="city" value="<%= user.city%>">
+                <input type="submit" value="Save">
+            </form>
+        </fieldset>
+</body>
+
+</html>

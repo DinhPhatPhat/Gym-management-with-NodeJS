@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/Home.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a class="active" href="#home">Home</a></li>
+            <li><a href="/get-create-user">News</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </div>
+
+    <h2>List users</h2>
+    <%=JSON.stringify(users) %>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>Actions</th>
+            </tr>
+            <% users.forEach((user, index)=> { %>
+                <tr>
+                    <td>
+                        <%=user.id %>
+                    </td>
+                    <td>
+                        <%=user.email %>
+                    </td>
+                    <td>
+                        <%=user.name %>
+                    </td>
+                    <td>
+                        <%=user.city %>
+                    </td>
+                    <td><button><a href="/get-edit-user/<%=user.id %>">Edit</a></button>
+                        <form action="/delete-user/<%=user.id %>" method="POST">
+
+                            <input class="inline" type="submit" value="Delete">
+                        </form>
+                    </td>
+                </tr>
+                <% }) %>
+        </table>
+</body>
+
+</html>
